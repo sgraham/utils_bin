@@ -1,4 +1,4 @@
-# Handle file.cc(23) or file.cc:23: and open vim to right line.
+# Handle file.cc(23), file.cc:23: and similar and open vim to right line.
 
 import os
 import re
@@ -30,6 +30,8 @@ def main():
       line = mo2.group(2)
       open_at(file, line)
     else:
+      if arg.endswith(':'): # Non -n grep results.
+        arg = arg[:-1]
       open_at(arg)
 
 if __name__ == '__main__':
