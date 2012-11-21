@@ -16,6 +16,12 @@ def main():
       continue
     if '.html:' in line:
       continue
+    if '.d:' in line:
+      continue
+    if '.ninja' in line:
+      continue
+    if '.vcxproj' in line:
+      continue
     sys.stdout.write(
         re.sub(r':([0-9]+):', lambda x: ':%d:' % (int(x.group(1)) + 1), line))
 
